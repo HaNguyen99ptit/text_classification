@@ -1,0 +1,72 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a simple API"
+  version: "1.0.0"
+  title: "Simple Inventory API"
+  contact:
+    email: "you@your-company.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "virtserver.swaggerhub.com"
+basePath: "/p12821/demo2/1.0.0"
+schemes:
+- "https"
+- "http"
+paths:
+  /checkMessage:
+    get:
+      tags:
+      - "user"
+      summary: "enter message"
+      operationId: "enter_message"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "enter"
+        in: "query"
+        description: "pass a message"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "result type of mesage"
+          schema:
+            type: "object"
+            properties:
+              mess:
+                type: "string"
+              result:
+                type: "string"
+        "400":
+          description: "bad input parameter"
+      x-swagger-router-controller: "swagger_server.controllers.user_controller"
+    post:
+      tags:
+      - "user"
+      summary: "enter message"
+      operationId: "pass_message"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "enter"
+        in: "query"
+        description: "pass a message"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "result type of mesage"
+          schema:
+            type: "object"
+            properties:
+              mess:
+                type: "string"
+              result:
+                type: "string"
+        "400":
+          description: "invalid input, object invalid"
+      x-swagger-router-controller: "swagger_server.controllers.user_controller"
